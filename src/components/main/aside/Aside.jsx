@@ -14,8 +14,23 @@ import { hands1_logo, hands2_logo, hands3_logo, hands4_logo } from "@/assets";
 export default function Aside() {
   const [posts, setPosts] = useState([]);
 
+  const postsCount = posts.length;
+  const imagesPerPage = 5;
+  const [page, setPage] = useState(1);
+
+  const startIndex = (page - 1) * imagesPerPage;
+  const endIndex = Math.min(postsCount, startIndex + imagesPerPage);
+
+  const slideBack = () => {
+    if (page > 1) setPage((prev) => prev - 1);
+  };
+
+  const slideForward = () => {
+    if (page * imagesPerPage < postsCount) setPage((prev) => prev + 1);
+  };
+
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos")
+    fetch("https://nslovar.cnii-jest.ru/api/jests")
       .then((response) => response.json())
       .then((json) => setPosts(json));
   }, []);
@@ -48,7 +63,7 @@ export default function Aside() {
           </div>
           <Input
             placeholder="Название жеста"
-            className="border-none bg-[#303339] text-[#728796] focus-visible:ring-0 focus-visible:ring-offset-0"
+            className="border-none bg-[#303339] text-[#728796] placeholder:text-[#728796] focus-visible:ring-0 focus-visible:ring-offset-0"
           />
           <ScrollArea className="h-[240px] rounded-md bg-[#303339]">
             <div className="flex flex-col">
@@ -58,7 +73,7 @@ export default function Aside() {
                   className="max-w-[190px] cursor-pointer truncate px-2 py-[1.5px] text-[14px] leading-[17px] text-[#728796] transition hover:text-neutral-200"
                   key={post.id}
                 >
-                  {post.title}
+                  {post.name}
                 </a>
               ))}
             </div>
@@ -96,11 +111,11 @@ export default function Aside() {
           </Button>
         </div>
         <div className="flex w-[188px] flex-col gap-[12px] rounded-r-md bg-[#212328] px-[10px] py-[12px]">
-          {posts.slice(0, 5).map((post) => (
+          {posts.slice(startIndex, endIndex).map((post) => (
             <a key={post.id} href={String(post.id)}>
               <div className="flex flex-col gap-[4px]">
                 <p className="truncate text-[11px] leading-[13px] text-[#C1E1FF] transition hover:opacity-75">
-                  {post.title}
+                  {post.name}
                 </p>
                 <img
                   className="h-[96px]"
@@ -110,12 +125,17 @@ export default function Aside() {
               </div>
             </a>
           ))}
-          <div className="flex items-center justify-between px-[12px]">
-            <button className="transition hover:opacity-75">
+          <div className="mb-[1px] mt-auto flex items-center justify-between px-[6px]">
+            <button onClick={slideBack} className="transition hover:opacity-75">
               <ChevronLeft className="h-[18px] w-[18px] text-[#630B12]" />
             </button>
-            <div className="text-[13px] text-[#7a7a7a]">1-4 из 206</div>
-            <button className="transition hover:opacity-75">
+            <div className="text-[13px] text-[#7a7a7a]">
+              {startIndex + 1}-{endIndex} из {postsCount}
+            </div>
+            <button
+              onClick={slideForward}
+              className="transition hover:opacity-75"
+            >
               <ChevronRight className="h-[18px] w-[18px] text-[#3EA2FF]" />
             </button>
           </div>
