@@ -124,23 +124,3 @@ export default function Aside() {
     </aside>
   );
 }
-// /* 1-4 из 206 */
-
-// margin: 0 auto;
-// width: 62px;
-// height: 15px;
-
-// font-family: 'Gilroy';
-// font-style: normal;
-// font-weight: 400;
-// font-size: 13.33px;
-// line-height: 15px;
-
-// color: #DDDDDD;
-
-// opacity: 0.5;
-
-// /* Inside auto layout */
-// flex: none;
-// order: 1;
-// flex-grow: 0;
