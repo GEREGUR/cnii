@@ -6,7 +6,7 @@ import { SelectValue, SelectTrigger, SelectItem, SelectContent, Select } from "@
 
 export function Filters() {
   return (
-    (<div className="bg-black px-4 py-2 flex justify-between items-center gap-4">
+    (<div className="bg-black px-4 pb-2 flex justify-between items-center gap-4">
       <Select>
         <SelectTrigger className="text-white bg-[#333] border-none" id="dialect">
           <SelectValue placeholder="Диалект" />

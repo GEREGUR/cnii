@@ -4,7 +4,7 @@ import { NavDesktop } from "./navigation/NavDesktop";
 
 export default function Header() {
   return (
-    <div className="w-full bg-black flex flex-row justify-between px-6 py-2 relative">
+    <div className="w-full bg-black flex flex-row justify-between pl-6 py-2 relative">
       <div className="flex flex-col flex-nowrap w-[80%]">
         <h1 className="text-[#C1E1FF] w-full text-sm font-bold mb-2">
           <span className="text-xs font-normal">Электронная справочно-аналитическая система</span><br />
@@ -19,7 +19,7 @@ export default function Header() {
           <img src={cnii_logo} alt="CNII Logo" />
         </a>
       </div>
-      <div className="flex flex-row justify-end items-center w-[400px]">
+      <div className="flex flex-row justify-end items-center w-[500px]">
         <NavButtons />
       </div>
     </div>

@@ -4,20 +4,36 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query"; // Import QueryClient and QueryClientProvider
 import "./index.css";
 import HomePage from "./pages/HomePage";
+import TestPage from "./pages/TestPage";
 import ErrorPage from "./pages/ErrorPage";
+
+
+// Create a QueryClient instance
+const queryClient = new QueryClient();
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomePage />,
-    errorElement: <ErrorPage />
+    errorElement: <ErrorPage />,
   },
+  {
+    path: "/test",
+    element: <TestPage />,
+    errorElement: <ErrorPage />
+  }
 ]);
 
+// Wrap your entire application with QueryClientProvider and provide the QueryClient instance
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <QueryClientProvider client={queryClient}>
+      <div className="bg-black min-h-screen">
+        <RouterProvider router={router} />
+      </div>
+    </QueryClientProvider>
   </React.StrictMode>
-)
+);

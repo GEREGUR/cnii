@@ -1,4 +1,4 @@
-import { login_logo, settings_logo } from "../../../assets";
+import { login_logo, settings_logo, russia_logo } from "../../../assets";
 
 export const routes = [
     {
@@ -21,5 +21,10 @@ export const iconsRoutes = [
         Icon: settings_logo,
         title: "Settings",
         href: '/settings'
+    },
+    {
+        Icon: russia_logo,
+        title: 'Localization',
+        href: ''
     }
 ]
