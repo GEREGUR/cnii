@@ -31,7 +31,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <div className="bg-black min-h-screen">
+      <div className="bg-black min-h-screen text-[#C1E1FF]">
         <RouterProvider router={router} />
       </div>
     </QueryClientProvider>

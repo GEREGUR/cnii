@@ -30,7 +30,7 @@ export const NavButtons = () => {
         onInput={handleInput}
         placeholder={placeholderText}
         className="text-xs text-center w-[150px] h-[38px] bg-[#303339] text-[#728796] outline-none rounded-lg focus:text-start focus:pl-2"></input>
-        <ul className="flex mr-[9px]">
+        <ul className="flex m-[9px]">
         {iconsRoutes.map((route) => {
             const { href, Icon, title } = route;
             return (

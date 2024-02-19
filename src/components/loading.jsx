@@ -8,8 +8,8 @@ export function Loading() {
   return (
     (<div className="flex items-center justify-center min-h-screen">
       <div className="flex items-center space-x-4">
-        <LoaderIcon className="h-6 w-6 animate-spin text-gray-900" />
-        <span className="text-sm font-medium text-gray-900">Loading...</span>
+        <LoaderIcon className="h-6 w-6 animate-spin" />
+        <span className="text-sm font-medium">Загрузка...</span>
       </div>
     </div>)
   );

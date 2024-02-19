@@ -13,7 +13,7 @@ const JestsComponent = () => {
 
   if (isError) return (
     <div className='flex flex-col justify-center items-center w-screen h-screen'>
-        <div className='flex items-center justify-center'>
+        <div className='flex items-center justify-center text-[#C1E1FF]'>
         Error: {error.message}
         </div>
         <a href="/" className='hover:bg-sky-400 border-2 border-black rounded-lg'>Вернуться </a>
