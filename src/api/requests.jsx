@@ -16,7 +16,7 @@ const JestsComponent = () => {
         <div className='flex items-center justify-center text-[#C1E1FF]'>
         Error: {error.message}
         </div>
-        <a href="/" className='hover:bg-sky-400 border-2 border-black rounded-lg'>Вернуться </a>
+        <a href="/" className='border-2 border-black rounded-lg hover:border-2 hover:border-neutral-200 transition '>Вернуться </a>
     </div>
   );
 

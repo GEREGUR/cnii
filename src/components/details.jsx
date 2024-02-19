@@ -15,7 +15,7 @@ const info = [
 export function Details() {
   return (
     <div className="flex justify-between bg-black">
-      {info.map((jest) => (<h1 key={jest.name} className="w-1/5 text-[#3EA2FF] pl-4 text-4xl">{jest.name}</h1>))}
+      {info.map((jest) => (<h1 key={jest.name} className="w-1/5 truncate text-[#3EA2FF] pl-4 text-4xl">{jest.name}</h1>))}
       <div className="flex justify-end items-start pt-1 gap-4">
         <div className="flex justify-start h-auto items-start gap-4">
           {info.map((jest) => (
