@@ -2,12 +2,12 @@ import { Details } from "../details";
 import VideoPlayer from "./jest card components/VideoPlayer";
 import Smth from "./jest card components/Smth";
 import Description from "./jest card components/Description";
-import axios from "axios";
+// import axios from "axios";
 
-const fetchDescription = async () => {
-  const { data } = await axios.get("https://nslovar.cnii-jest.ru/api/jests");
-  return data;
-};
+// const fetchDescription = async () => {
+//   const { data } = await axios.get("https://nslovar.cnii-jest.ru/api/jests");
+//   return data;
+// };
 
 
 export default function JestCard() {
@@ -18,7 +18,7 @@ export default function JestCard() {
         <Smth />
         <VideoPlayer />
       </div>
-        <Description Data={data}/>
+        <Description/>
     </div>
   )
 }
