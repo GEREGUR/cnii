@@ -9,7 +9,7 @@ import "./index.css";
 import HomePage from "./pages/HomePage";
 import TestPage from "./pages/TestPage";
 import ErrorPage from "./pages/ErrorPage";
-
+import { ReactQueryDevtools } from 'react-query/devtools'
 
 // Create a QueryClient instance
 const queryClient = new QueryClient();
@@ -34,6 +34,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <div className="bg-black min-h-screen text-[#C1E1FF]">
         <RouterProvider router={router} />
       </div>
+      <ReactQueryDevtools initialIsOpen={true} />
     </QueryClientProvider>
   </React.StrictMode>
 );

@@ -1,4 +1,4 @@
-import { Details } from "../details";
+import Details from "../details";
 import VideoPlayer from "./jest card components/VideoPlayer";
 import Smth from "./jest card components/Smth";
 import Description from "./jest card components/Description";
