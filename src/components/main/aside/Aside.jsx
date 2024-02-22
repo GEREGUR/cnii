@@ -1,6 +1,7 @@
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Button } from "@/components/ui/button";
+
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -13,13 +14,14 @@ import axios from "axios";
 import { useQuery } from "react-query";
 import { Loader2 } from "lucide-react";
 import Hands from "./hands/Hands";
+import { Link } from "react-router-dom";
 
 const fetchGestures = async () => {
   const { data } = await axios.get("https://nslovar.cnii-jest.ru/api/jests");
   return data;
 };
 
-export default function Aside() {
+ const Aside = () => {
   const {
     data: gestures,
     isLoading,
@@ -42,6 +44,7 @@ export default function Aside() {
   const slideForward = () => {
     if (page * imagesPerPage < gesturesCount) setPage((prev) => prev + 1);
   };
+
 
   return (
     <aside className="h-[670px] w-[420px]">
@@ -68,13 +71,14 @@ export default function Aside() {
             {gestures && (
               <div className="flex flex-col">
                 {gestures.map((post) => (
-                  <a
-                    href={`/${post.id}`}
+                  <Link
+                    to={`/${post.id}`}
                     className="max-w-[190px] cursor-pointer truncate px-2 py-[1.5px] text-[14px] leading-[17px] text-[#728796] transition hover:text-neutral-200"
                     key={post.id}
                   >
                     {post.name}
-                  </a>
+                  </Link>
+                  
                 ))}
               </div>
             )}
@@ -111,7 +115,7 @@ export default function Aside() {
             Сброс фильтров
           </Button>
         </div>
-        <div className="flex w-[188px] flex-col gap-[12px] rounded-r-md bg-[#212328] px-[10px] py-[12px]">
+        <div className="flex w-[188px] flex-col gap-[12px] rounded-r-md bg-black px-[10px] py-[12px]">
           {isLoading && (
             <div className="flex h-full items-center justify-center">
               <Loader2 className="animate-spin text-[#728796]" />
@@ -127,7 +131,9 @@ export default function Aside() {
           {gestures && (
             <>
               {gestures.slice(startIndex, endIndex).map((post) => (
-                <a key={post.id} href={String(post.id)}>
+                <Link 
+                key={post.id} 
+                to={`/${post.id}`}>
                   <div className="flex flex-col gap-[4px]">
                     <p className="truncate text-[11px] leading-[13px] text-[#C1E1FF] transition hover:opacity-75">
                       {post.name}
@@ -138,7 +144,7 @@ export default function Aside() {
                       alt="Жест"
                     />
                   </div>
-                </a>
+                </Link>
               ))}
               <div className="mb-[1px] mt-auto flex items-center justify-between px-[6px]">
                 <button
@@ -164,3 +170,4 @@ export default function Aside() {
     </aside>
   );
 }
+export default Aside

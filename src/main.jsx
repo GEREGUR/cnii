@@ -9,7 +9,8 @@ import "./index.css";
 import HomePage from "./pages/HomePage";
 import TestPage from "./pages/TestPage";
 import ErrorPage from "./pages/ErrorPage";
-import { ReactQueryDevtools } from 'react-query/devtools'
+import { ReactQueryDevtools } from 'react-query/devtools';
+import JestPage from "./pages/JestPage";
 
 // Create a QueryClient instance
 const queryClient = new QueryClient();
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
   {
     path: "/test",
     element: <TestPage />,
+    errorElement: <ErrorPage />
+  },
+  {
+    path: "/:id",
+    element: <JestPage/>,
     errorElement: <ErrorPage />
   }
 ]);
