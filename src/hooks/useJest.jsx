@@ -5,8 +5,7 @@ const fetchGesture = async (id) => {
 
   try {
     const { data } = await axios.get(`https://nslovar.cnii-jest.ru/api/jests/${id}`);
-  
-  return data;
+  return data.json();
   } catch (error) {
     console.log(error)
   }

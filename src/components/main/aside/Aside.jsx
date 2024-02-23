@@ -46,6 +46,22 @@ const fetchGestures = async () => {
   };
 
 
+  const [filteredGestures, setFilteredGestures] = useState([]);
+  const [filterKeyword, setFilterKeyword] = useState("");
+
+  const filterGestures = () => {
+    const filtered = gestures.filter(
+      (gesture) =>
+        gesture.name.toLowerCase().includes(filterKeyword.toLowerCase())
+    );
+    setFilteredGestures(filtered);
+  };
+
+  const clearFilters = () => {
+    setFilterKeyword("");
+    setFilteredGestures([]);
+  };
+
   return (
     <aside className="h-[670px] w-[420px]">
       <div className="flex h-full">
@@ -54,6 +70,8 @@ const fetchGestures = async () => {
           <Input
             placeholder="Название жеста"
             className="border-none bg-[#303339] text-[#728796] placeholder:text-[#728796] focus-visible:ring-0 focus-visible:ring-offset-0"
+            value={filterKeyword}
+            onChange={(e) => setFilterKeyword(e.target.value)}
           />
           <ScrollArea className="h-[240px] rounded-md bg-[#303339]">
             {isLoading && (
@@ -70,16 +88,17 @@ const fetchGestures = async () => {
             )}
             {gestures && (
               <div className="flex flex-col">
-                {gestures.map((post) => (
-                  <Link
-                    to={`/${post.id}`}
-                    className="max-w-[190px] cursor-pointer truncate px-2 py-[1.5px] text-[14px] leading-[17px] text-[#728796] transition hover:text-neutral-200"
-                    key={post.id}
-                  >
-                    {post.name}
-                  </Link>
-                  
-                ))}
+                {(filteredGestures.length > 0 ? filteredGestures : gestures).map(
+              (post) => (
+                <div
+                  className="max-w-[190px] cursor-pointer truncate px-2 py-[1.5px] text-[14px] leading-[17px] text-[#728796] transition hover:text-neutral-200"
+                  key={post.id}
+                  onClick={filterGestures}
+                >
+                  {post.name}
+                </div>
+              )
+            )}
               </div>
             )}
           </ScrollArea>
@@ -111,7 +130,10 @@ const fetchGestures = async () => {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <Button className="bg-[#303339] text-[#728796]">
+          <Button
+           className="bg-[#303339] text-[#728796]"
+           onClick={clearFilters}
+           >
             Сброс фильтров
           </Button>
         </div>

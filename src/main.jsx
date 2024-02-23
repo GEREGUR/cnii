@@ -10,7 +10,8 @@ import HomePage from "./pages/HomePage";
 import TestPage from "./pages/TestPage";
 import ErrorPage from "./pages/ErrorPage";
 import { ReactQueryDevtools } from 'react-query/devtools';
-import JestPage from "./pages/JestPage";
+import JestCard from "./components/jest card/JestCard";
+
 
 // Create a QueryClient instance
 const queryClient = new QueryClient();
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/:id",
-    element: <JestPage/>,
+    element: <JestCard/>,
     errorElement: <ErrorPage />
   }
 ]);

@@ -13,7 +13,7 @@ export default function Home() {
           <div className="w-auto">
               <Filters />
           </div>
-          <div className="w-auto mr-[14px] h-full">
+          <div className=" mr-[14px] h-full">
               <JestCard />
           </div>
         </main>
