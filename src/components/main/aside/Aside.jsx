@@ -24,7 +24,7 @@ export default function Aside() {
     data: gestures,
     isLoading,
     error,
-  } = useQuery("gestures", fetchGestures);
+  } = useQuery("gestures", (id) => fetchGestures(id));
 
   if (error) console.log(error);
 
