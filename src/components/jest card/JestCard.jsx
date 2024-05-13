@@ -9,16 +9,15 @@ import Description from "./jest card components/Description";
 //   return data;
 // };
 
-
-export default function JestCard() {
+export default function JestCard({ id }) {
   return (
     <div>
-      <Details />
-      <div className="flex justify-end my-4">
+      <Details id={id} />
+      <div className="my-4 flex justify-end">
         <Smth />
         <VideoPlayer />
       </div>
-        <Description/>
+      <Description />
     </div>
-  )
+  );
 }

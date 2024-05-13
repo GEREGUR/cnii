@@ -1,9 +1,5 @@
 const Smth = () => {
-  return (
-    <div className="w-[140px] h-[239px] bg-yellow-300">
-        Smth
-    </div>
-  )
-}
+  return <div className="h-[239px] w-[140px]"></div>;
+};
 
-export default Smth
+export default Smth;
